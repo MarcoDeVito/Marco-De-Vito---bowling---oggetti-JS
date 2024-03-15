@@ -37,13 +37,15 @@ let bowling = {
         this.players.sort(function (a, b) { return b.somma - a.somma });
     },
     'printChart': function () {
+        this.sommaPunteggi();
         this.orderPlayer();
         console.log("CLASSIFICA:");
         this.players.forEach((element, index) => {
-            console.log(`${index + 1}° posto:${element.name} con ${element.somma} punti`);
+            console.log(`${index + 1}° posto: ${element.name} con ${element.somma} punti [${element.scores}]`);
         });
     },
     'printWinner': function () {
+        this.sommaPunteggi();
         this.orderPlayer();
         console.log(`il vincitore è ${this.players[0].name}\n Congratulazioni 🏆! `);
     }
@@ -53,6 +55,9 @@ let bowling = {
 
 bowling.createScore();
 bowling.addPlayer("Laura");
+bowling.addPlayer("Marco");
+bowling.addPlayer("Sara");
+bowling.addPlayer("Carolina");
 bowling.sommaPunteggi();
 bowling.orderPlayer()
 bowling.printWinner();
