@@ -4,23 +4,8 @@ let bowling = {
         { 'name': 'Livio', 'scores': []},
         { 'name': 'Paola', 'scores': []},
         { 'name': 'Filippo', 'scores': []},
-        { 'name': 'Giuseppe', 'scores': []},
-        { 'name': 'Livio', 'scores': []},
-        { 'name': 'Paola', 'scores': []},
-        { 'name': 'Filippo', 'scores': []},
-        { 'name': 'Giuseppe', 'scores': []},
-        { 'name': 'Livio', 'scores': []},
-        { 'name': 'Paola', 'scores': []},
-        { 'name': 'Filippo', 'scores': []},
-        { 'name': 'Giuseppe', 'scores': []},
-        { 'name': 'Livio', 'scores': []},
-        { 'name': 'Paola', 'scores': []},
-        { 'name': 'Filippo', 'scores': []},
-        { 'name': 'Giuseppe', 'scores': []},
-        { 'name': 'Livio', 'scores': []},
-        { 'name': 'Paola', 'scores': []},
-        { 'name': 'Filippo', 'scores': []},
-        { 'name': 'Giuseppe', 'scores': []},
+        { 'name': 'Giuseppe', 'scores': []}
+       
     ],
     'createScore': function () {
         this.players.forEach(person => {
