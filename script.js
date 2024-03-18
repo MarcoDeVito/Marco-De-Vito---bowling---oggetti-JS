@@ -1,10 +1,26 @@
 // traccia 3
 let bowling = {
     'players': [
-        { 'name': 'Livio', 'scores': [], 'somma': 0 },
-        { 'name': 'Paola', 'scores': [], 'somma': 0 },
-        { 'name': 'Filippo', 'scores': [], 'somma': 0 },
-        { 'name': 'Giuseppe', 'scores': [], 'somma': 0 }
+        { 'name': 'Livio', 'scores': []},
+        { 'name': 'Paola', 'scores': []},
+        { 'name': 'Filippo', 'scores': []},
+        { 'name': 'Giuseppe', 'scores': []},
+        { 'name': 'Livio', 'scores': []},
+        { 'name': 'Paola', 'scores': []},
+        { 'name': 'Filippo', 'scores': []},
+        { 'name': 'Giuseppe', 'scores': []},
+        { 'name': 'Livio', 'scores': []},
+        { 'name': 'Paola', 'scores': []},
+        { 'name': 'Filippo', 'scores': []},
+        { 'name': 'Giuseppe', 'scores': []},
+        { 'name': 'Livio', 'scores': []},
+        { 'name': 'Paola', 'scores': []},
+        { 'name': 'Filippo', 'scores': []},
+        { 'name': 'Giuseppe', 'scores': []},
+        { 'name': 'Livio', 'scores': []},
+        { 'name': 'Paola', 'scores': []},
+        { 'name': 'Filippo', 'scores': []},
+        { 'name': 'Giuseppe', 'scores': []},
     ],
     'createScore': function () {
         this.players.forEach(person => {
@@ -14,7 +30,7 @@ let bowling = {
             }
         });
     },
-    'sommaPunteggi': function () {
+    'setFinalScore': function () {
         this.players.forEach(element => {
             element.somma = element.scores.reduce((acc, el) => acc + el, 0);
             // console.log(element.somma);
@@ -27,17 +43,17 @@ let bowling = {
         for (let i = 0; i < 10; i++) {
 
 
-            newscore.push(Math.floor(Math.random() * 10 + 1));
+            newscore.push(Math.floor(Math.random() * 11));
         }
 
-        this.players.push({ 'name': name, 'scores': newscore, 'somma': 0 });
+        this.players.push({ 'name': name, 'scores': newscore });
 
     },
     'orderPlayer': function () {
         this.players.sort(function (a, b) { return b.somma - a.somma });
     },
     'printChart': function () {
-        this.sommaPunteggi();
+        this.setFinalScore();
         this.orderPlayer();
         console.log("CLASSIFICA:");
         this.players.forEach((element, index) => {
@@ -45,9 +61,20 @@ let bowling = {
         });
     },
     'printWinner': function () {
-        this.sommaPunteggi();
+        this.setFinalScore();
         this.orderPlayer();
-        console.log(`il vincitore è ${this.players[0].name}\n Congratulazioni 🏆! `);
+        if (this.players[0].somma>this.players[1].somma) {
+            console.log(`il vincitore è ${this.players[0].name} con ${this.players[0].somma} punti\n Congratulazioni 🏆! `);
+        }else{
+            
+            let filtered = this.players.filter(el => {return el.somma=== this.players[0].somma});
+            console.log(filtered);
+            let stringaPareggio="C'è stato un pareggio i vincitori sono: ";
+            filtered.forEach(el => stringaPareggio+= `${el.name} e `)
+            stringaPareggio+=`hanno totalizzato ${this.players[0].somma} punti`   
+            console.log(stringaPareggio);
+             }
+
     }
 }
 
@@ -58,7 +85,7 @@ bowling.addPlayer("Laura");
 bowling.addPlayer("Marco");
 bowling.addPlayer("Sara");
 bowling.addPlayer("Carolina");
-bowling.sommaPunteggi();
+bowling.setFinalScore();
 bowling.orderPlayer()
 bowling.printWinner();
 bowling.printChart();
